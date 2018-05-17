@@ -1,6 +1,4 @@
 import React from "react";
-import "tachyons";
-import "./Navigation.css";
 
 const Navigation = () => {
   return (

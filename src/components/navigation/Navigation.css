@@ -1,0 +1,13 @@
+.myGrow {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+}
+
+.myGrow:hover,
+.myGrow:focus {
+  transform: scale(1.05);
+}
+
+.myGrow:active {
+  transform: scale(0.9);
+}

@@ -2,4 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+
+  background: -moz-linear-gradient(to right, #ff6ae1 0%, #15bff3 100%);
+  background: -webkit-linear-gradient(to right, #ff6ae1 0%, #15bff3 100%);
+  background: -o-linear-gradient(to right, #ff6ae1 0%, #15bff3 100%);
+  background: -ms-linear-gradient(to right, #ff6ae1 0%, #15bff3 100%);
+  background: linear-gradient(to right, #ff6ae1 0%, #15bff3 100%);
 }

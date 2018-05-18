@@ -11,3 +11,8 @@
 .myGrow:active {
   transform: scale(0.9);
 }
+
+.center {
+  justify-content: center;
+  display: flex;
+}

@@ -1,0 +1,43 @@
+.bg {
+  background: -moz-linear-gradient(to top right, #ff6ae1 0%, #15bff3 100%);
+  background: -webkit-linear-gradient(to top right, #ff6ae1 0%, #15bff3 100%);
+  background: -o-linear-gradient(to top right, #ff6ae1 0%, #15bff3 100%);
+  background: -ms-linear-gradient(to top right, #ff6ae1 0%, #15bff3 100%);
+  background: linear-gradient(to top right, #ff6ae1 0%, #15bff3 100%);
+}
+
+.pattern {
+  background: linear-gradient(
+      135deg,
+      #708090 22px,
+      #d9ecff 22px,
+      #d9ecff 24px,
+      transparent 24px,
+      transparent 67px,
+      #d9ecff 67px,
+      #d9ecff 69px,
+      transparent 69px
+    ),
+    linear-gradient(
+        225deg,
+        #708090 22px,
+        #d9ecff 22px,
+        #d9ecff 24px,
+        transparent 24px,
+        transparent 67px,
+        #d9ecff 67px,
+        #d9ecff 69px,
+        transparent 69px
+      )
+      0 64px;
+  background-color: #708090;
+  background-size: 64px 128px;
+}
+
+.width {
+  width: 1000px;
+}
+
+.shadow {
+  box-shadow: 8px 8px 12px 6px rgba(0, 0, 0, 0.2);
+}

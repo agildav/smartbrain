@@ -5,7 +5,7 @@ import Tilt from "react-tilt";
 
 const Logo = () => {
   return (
-    <div className="center">
+    <div className="center mb0">
       <Tilt
         className="Tilt"
         options={{ max: 60 }}

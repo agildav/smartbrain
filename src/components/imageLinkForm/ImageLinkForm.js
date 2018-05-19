@@ -4,9 +4,7 @@ import "./ImageLinkForm.css";
 const ImageLinkForm = () => {
   return (
     <div>
-      <p className="pa1 f3 center">
-        {"This app will detect faces in your pictures. Try it!"}
-      </p>
+      <p className="pa1 mb3 mt3 f1 center cubic black tracked">{"Try it"}</p>
       <div className="center">
         <div className="center pa4 br4 shadow pattern width">
           <input

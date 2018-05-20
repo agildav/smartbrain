@@ -1,11 +1,16 @@
 import React, { Component } from "react";
+import Particles from "react-particles-js";
 import Navigation from "../components/navigation/Navigation";
 import Logo from "../components/logo/Logo";
 import Rank from "../components/rank/Rank";
 import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
 import "tachyons";
-import Particles from "react-particles-js";
+import Clarifai from "clarifai";
 import "./App.css";
+
+const app = new Clarifai.App({
+  apiKey: "e5ffb161cb2347a3a674cca3c60c5c65"
+});
 
 const paramsParticles = {
   particles: {
@@ -30,7 +35,20 @@ class App extends Component {
   };
 
   onButtonSubmit = event => {
-    console.log(event.target);
+    app.models
+      .predict(
+        Clarifai.GENERAL_MODEL,
+        "https://samples.clarifai.com/metro-north.jpg"
+      )
+      .then(
+        function(response) {
+          // do something with response
+          console.log(response);
+        },
+        function(err) {
+          // there was an error
+        }
+      );
   };
 
   render() {

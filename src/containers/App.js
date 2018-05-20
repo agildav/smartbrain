@@ -3,7 +3,20 @@ import Navigation from "../components/navigation/Navigation";
 import Logo from "../components/logo/Logo";
 import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
 import "tachyons";
+import Particles from "react-particles-js";
 import "./App.css";
+
+const paramsParticles = {
+  particles: {
+    number: {
+      value: 40,
+      density: {
+        enable: true,
+        value_area: 300
+      }
+    }
+  }
+};
 
 class App extends Component {
   render() {
@@ -12,7 +25,8 @@ class App extends Component {
         <Navigation />
         <Logo />
         <ImageLinkForm />
-        {/*TODO
+        <Particles className="particles" params={paramsParticles} />
+        {/*TODO:
           <FaceRecognition />} 
         */}
       </div>

@@ -4,12 +4,17 @@ import Navigation from "../components/navigation/Navigation";
 import Logo from "../components/logo/Logo";
 import Rank from "../components/rank/Rank";
 import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
+import FaceRecognition from "../components/faceRecognition/FaceRecognition";
 import "tachyons";
 import Clarifai from "clarifai";
 import "./App.css";
 
+//  Clarifai
+const clarifai_model = "a403429f2ddf4b49b307e318f00e528b";
+const clarifai_key = "e5ffb161cb2347a3a674cca3c60c5c65";
+
 const app = new Clarifai.App({
-  apiKey: "e5ffb161cb2347a3a674cca3c60c5c65"
+  apiKey: clarifai_key
 });
 
 const paramsParticles = {
@@ -27,28 +32,25 @@ const paramsParticles = {
 class App extends Component {
   constructor() {
     super();
-    this.state = { input: "" };
+    this.state = { input: "", imageURL: "" };
   }
 
   onChangeInput = event => {
-    console.log(event.target.value);
+    this.setState({ input: event.target.value });
   };
 
-  onButtonSubmit = event => {
-    app.models
-      .predict(
-        Clarifai.GENERAL_MODEL,
-        "https://samples.clarifai.com/metro-north.jpg"
-      )
-      .then(
-        function(response) {
-          // do something with response
-          console.log(response);
-        },
-        function(err) {
-          // there was an error
-        }
-      );
+  onButtonSubmit = () => {
+    this.setState({ imageURL: this.state.input });
+    app.models.predict(clarifai_model, this.state.input).then(
+      function(response) {
+        // do something with response
+        console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
+      },
+      function(err) {
+        // there was an error
+        console.log(err);
+      }
+    );
   };
 
   render() {
@@ -61,10 +63,8 @@ class App extends Component {
           onChangeInput={this.onChangeInput}
           onButtonSubmit={this.onButtonSubmit}
         />
+        <FaceRecognition imageURL={this.state.imageURL} />
         <Particles className="particles" params={paramsParticles} />
-        {/*TODO:
-          <FaceRecognition />} 
-        */}
       </div>
     );
   }

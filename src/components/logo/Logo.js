@@ -1,5 +1,4 @@
 import React from "react";
-import "tachyons";
 import brain from "./brain.png";
 import Tilt from "react-tilt";
 

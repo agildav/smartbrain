@@ -7,6 +7,7 @@ import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
 import FaceRecognition from "../components/faceRecognition/FaceRecognition";
 import "tachyons";
 import Clarifai from "clarifai";
+import SignIn from "../components/signIn/SignIn";
 import "./App.css";
 
 //  Clarifai
@@ -35,7 +36,8 @@ class App extends Component {
     this.state = {
       input: "",
       imageURL: "",
-      box: {}
+      box: {},
+      route: "signIn"
     };
   }
 
@@ -80,15 +82,27 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navigation />
-        <Logo />
-        <Rank />
-        <ImageLinkForm
-          onChangeInput={this.onChangeInput}
-          onButtonSubmit={this.onButtonSubmit}
-        />
-        <FaceRecognition box={this.state.box} imageURL={this.state.imageURL} />
         <Particles className="particles" params={paramsParticles} />
+        <Navigation />
+        {
+          // SignIn Route
+        }
+        {this.state.route === "signIn" ? (
+          <SignIn />
+        ) : (
+          <div>
+            <Logo />
+            <Rank />
+            <ImageLinkForm
+              onChangeInput={this.onChangeInput}
+              onButtonSubmit={this.onButtonSubmit}
+            />
+            <FaceRecognition
+              box={this.state.box}
+              imageURL={this.state.imageURL}
+            />
+          </div>
+        )}
       </div>
     );
   }

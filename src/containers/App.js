@@ -32,25 +32,49 @@ const paramsParticles = {
 class App extends Component {
   constructor() {
     super();
-    this.state = { input: "", imageURL: "" };
+    this.state = {
+      input: "",
+      imageURL: "",
+      box: {}
+    };
   }
 
   onChangeInput = event => {
     this.setState({ input: event.target.value });
   };
 
+  calculateFace = data => {
+    //TODO: Detect multiple faces
+    const clarifaiFace =
+      data.outputs[0].data.regions[0].region_info.bounding_box;
+    const image = document.getElementById("inputImage");
+
+    const width = Number(image.width);
+    const height = Number(image.height);
+
+    return {
+      leftCol: clarifaiFace.left_col * width,
+      rightCol: width - clarifaiFace.right_col * width,
+      topRow: clarifaiFace.top_row * height,
+      bottomRow: height - clarifaiFace.bottom_row * height
+    };
+  };
+
+  displayFaceBox = boxData => {
+    this.setState({ box: boxData });
+  };
+
   onButtonSubmit = () => {
     this.setState({ imageURL: this.state.input });
-    app.models.predict(clarifai_model, this.state.input).then(
-      function(response) {
-        // do something with response
-        console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
-      },
-      function(err) {
+    app.models
+      .predict(clarifai_model, this.state.input)
+      .then(response => {
+        this.displayFaceBox(this.calculateFace(response));
+      })
+      .catch(err => {
         // there was an error
         console.log(err);
-      }
-    );
+      });
   };
 
   render() {
@@ -63,7 +87,7 @@ class App extends Component {
           onChangeInput={this.onChangeInput}
           onButtonSubmit={this.onButtonSubmit}
         />
-        <FaceRecognition imageURL={this.state.imageURL} />
+        <FaceRecognition box={this.state.box} imageURL={this.state.imageURL} />
         <Particles className="particles" params={paramsParticles} />
       </div>
     );

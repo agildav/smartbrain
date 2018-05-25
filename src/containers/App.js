@@ -83,7 +83,6 @@ class App extends Component {
     return (
       <div className="App">
         <Particles className="particles" params={paramsParticles} />
-        <Navigation />
         {
           // SignIn Route
         }
@@ -91,6 +90,7 @@ class App extends Component {
           <SignIn />
         ) : (
           <div>
+            <Navigation />
             <Logo />
             <Rank />
             <ImageLinkForm

@@ -1,12 +1,23 @@
 import React from "react";
 
-const SignIn = ({ onRouteChange }) => {
+const Register = ({ onRouteChange }) => {
   return (
     <article className="br3 ba b--black-10 mv5 w-100 w-50-m w-25-l mw6 shadow center">
       <main className="pa4 black-80">
         <form className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-            <legend className="f1 fw6 ph0 mh0 center">Sign in</legend>
+            <legend className="f1 fw6 ph0 mh0 center">Register</legend>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6" htmlFor="name">
+                Name
+              </label>
+              <input
+                className="pa2 input-reset ba bg-transparent hover-bg-gray hover-white w-100"
+                type="text"
+                name="name"
+                id="name"
+              />
+            </div>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" htmlFor="email-address">
                 Email
@@ -32,19 +43,11 @@ const SignIn = ({ onRouteChange }) => {
           </fieldset>
           <div className="">
             <input
-              className="b ph3 pv2 input-reset ba b--black bg-transparent myGrow pointer f4 dib center"
+              className="b ph3 pv2 input-reset ba b--black bg-transparent myGrow pointer f5 dib center"
               type="submit"
-              value="Sign in"
+              value="Register"
               onClick={() => onRouteChange("home")}
             />
-          </div>
-          <div className="lh-copy mt3">
-            <p
-              className="f5 link dim black db center myGrow pointer"
-              onClick={() => onRouteChange("register")}
-            >
-              Register
-            </p>
           </div>
         </form>
       </main>
@@ -52,4 +55,4 @@ const SignIn = ({ onRouteChange }) => {
   );
 };
 
-export default SignIn;
+export default Register;

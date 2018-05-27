@@ -79,6 +79,10 @@ class App extends Component {
       });
   };
 
+  onRouteChange = route => {
+    this.setState({ route: route });
+  };
+
   render() {
     return (
       <div className="App">
@@ -87,10 +91,10 @@ class App extends Component {
           // SignIn Route
         }
         {this.state.route === "signIn" ? (
-          <SignIn />
+          <SignIn onRouteChange={this.onRouteChange} />
         ) : (
           <div>
-            <Navigation />
+            <Navigation onRouteChange={this.onRouteChange} />
             <Logo />
             <Rank />
             <ImageLinkForm

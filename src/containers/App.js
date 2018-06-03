@@ -8,7 +8,7 @@ import FaceRecognition from "../components/faceRecognition/FaceRecognition";
 import Register from "../components/register/Register";
 import "tachyons";
 import Clarifai from "clarifai";
-import SignIn from "../components/signIn/SignIn";
+import SignIn from "./SignIn";
 import "./App.css";
 
 //  Clarifai
@@ -38,7 +38,8 @@ class App extends Component {
       input: "",
       imageURL: "",
       box: {},
-      route: "signIn"
+      route: "signIn",
+      isSignedIn: false
     };
   }
 
@@ -81,31 +82,37 @@ class App extends Component {
   };
 
   onRouteChange = route => {
+    if (route === "home") {
+      this.setState({ isSignedIn: true });
+    } else if (route === "signOut") {
+      this.setState({ isSignedIn: false });
+    }
     this.setState({ route: route });
   };
 
   render() {
+    const { isSignedIn, imageURL, box, route } = this.state;
     return (
       <div className="App">
         <Particles className="particles" params={paramsParticles} />
+        <Navigation
+          isSignedIn={isSignedIn}
+          onRouteChange={this.onRouteChange}
+        />
         {
           // Home Route
         }
-        {this.state.route === "home" ? (
+        {route === "home" ? (
           <div>
-            <Navigation onRouteChange={this.onRouteChange} />
             <Logo />
             <Rank />
             <ImageLinkForm
               onChangeInput={this.onChangeInput}
               onButtonSubmit={this.onButtonSubmit}
             />
-            <FaceRecognition
-              box={this.state.box}
-              imageURL={this.state.imageURL}
-            />
+            <FaceRecognition box={box} imageURL={imageURL} />
           </div>
-        ) : this.state.route === "signIn" ? (
+        ) : route === "signIn" || route === "signOut" ? (
           <SignIn onRouteChange={this.onRouteChange} />
         ) : (
           <Register onRouteChange={this.onRouteChange} />

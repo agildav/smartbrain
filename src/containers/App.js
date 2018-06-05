@@ -5,10 +5,10 @@ import Logo from "../components/logo/Logo";
 import Rank from "../components/rank/Rank";
 import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
 import FaceRecognition from "../components/faceRecognition/FaceRecognition";
-import Register from "../components/register/Register";
 import "tachyons";
 import Clarifai from "clarifai";
 import SignIn from "./SignIn";
+import Register from "./Register";
 import "./App.css";
 
 //  Clarifai

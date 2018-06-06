@@ -20,8 +20,30 @@ class Register extends React.Component {
     this.setState({ password: event.target.value });
   };
 
+  onSubmit = () => {
+    const url = "http://localhost:3000/register";
+    const fetchReq = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
+      })
+    };
+
+    fetch(url, fetchReq)
+      .then(response => response.json())
+      .then(data => {
+        if (data === "success") {
+          this.props.onRouteChange("home");
+        }
+      });
+  };
+
   render() {
-    const { onRouteChange } = this.props;
     return (
       <article className="br3 ba b--black-10 mv5 w-100 w-50-m w-25-l mw6 shadow center">
         <main className="pa4 black-80">
@@ -70,7 +92,7 @@ class Register extends React.Component {
                 className="b ph3 pv2 input-reset ba b--black bg-transparent myGrow pointer f5 dib center"
                 type="submit"
                 value="Register"
-                onClick={() => onRouteChange("home")}
+                onClick={this.onSubmit}
               />
             </div>
           </div>

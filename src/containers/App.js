@@ -10,15 +10,6 @@ import SignIn from "../components/signIn/SignIn";
 import Register from "../components/register/Register";
 import "./App.css";
 
-/*
-//  Clarifai
-const clarifai_model = "a403429f2ddf4b49b307e318f00e528b";
-const clarifai_key = "e5ffb161cb2347a3a674cca3c60c5c65";
-
-const app = new Clarifai.App({
-  apiKey: clarifai_key
-});
-*/
 const paramsParticles = {
   particles: {
     number: {
@@ -156,11 +147,11 @@ class App extends Component {
         ) : route === "signIn" || route === "signOut" ? (
           <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         ) : (
-          <Register
-            loadUser={this.loadUser}
-            onRouteChange={this.onRouteChange}
-          />
-        )}
+              <Register
+                loadUser={this.loadUser}
+                onRouteChange={this.onRouteChange}
+              />
+            )}
       </div>
     );
   }

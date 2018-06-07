@@ -20,7 +20,7 @@ class Register extends React.Component {
     this.setState({ password: event.target.value });
   };
 
-  onSubmit = () => {
+  onSubmitSignIn = () => {
     const url = "http://localhost:3000/register";
     const fetchReq = {
       method: "POST",
@@ -93,7 +93,7 @@ class Register extends React.Component {
                 className="b ph3 pv2 input-reset ba b--black bg-transparent myGrow pointer f5 dib center"
                 type="submit"
                 value="Register"
-                onClick={this.onSubmit}
+                onClick={this.onSubmitSignIn}
               />
             </div>
           </div>

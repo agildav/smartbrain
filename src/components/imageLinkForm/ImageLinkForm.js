@@ -4,7 +4,7 @@ import "./ImageLinkForm.css";
 const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
   return (
     <div>
-      <p className="pa1 mb3 mt3 f3 center cubic black tracked">{"Try it"}</p>
+      <p className="pa1 mb3 mt3 f3 center black tracked">{"Try it"}</p>
       <div className="center">
         <div className="center pa4 br4 shadow pattern width">
           <input

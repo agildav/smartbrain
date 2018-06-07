@@ -37,14 +37,3 @@
 .width {
   width: 1000px;
 }
-
-@font-face {
-  font-family: "Stringray";
-  font-style: normal;
-  font-weight: normal;
-  src: url("./Stingray.otf");
-}
-
-.cubic {
-  font-family: "Stringray";
-}

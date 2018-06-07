@@ -8,7 +8,7 @@ const Logo = () => {
       <Tilt
         className="Tilt"
         options={{ max: 60 }}
-        style={{ height: 150, width: 150 }}
+        style={{ height: 180, width: 180 }}
       >
         <div className="Tilt-inner pa2">
           <img alt="Logo" src={brain} />

@@ -1,7 +1,7 @@
 import React from "react";
 import "./ImageLinkForm.css";
 
-const ImageLinkForm = ({ onChangeInput, onButtonSubmit }) => {
+const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
   return (
     <div>
       <p className="pa1 mb3 mt3 f3 center cubic black tracked">{"Try it"}</p>
@@ -11,7 +11,7 @@ const ImageLinkForm = ({ onChangeInput, onButtonSubmit }) => {
             className="f4 w-60 pa2"
             type="text"
             placeholder="Picture URL"
-            onChange={onChangeInput}
+            onChange={onInputChange}
           />
           <button
             className="f4 w-40 myGrow link pointer dib white bg"

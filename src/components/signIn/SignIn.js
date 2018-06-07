@@ -1,6 +1,6 @@
 import React from "react";
 
-class SignIn extends React.Component {
+class Signin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +16,7 @@ class SignIn extends React.Component {
     this.setState({ signInPassword: event.target.value });
   };
 
-  onSubmit = () => {
+  onSubmitSignIn = () => {
     const url = "http://localhost:3000/signin";
     const fetchReq = {
       method: "POST",
@@ -76,7 +76,7 @@ class SignIn extends React.Component {
                 className="b ph3 pv2 input-reset ba b--black bg-transparent myGrow pointer f4 dib center"
                 type="submit"
                 value="Sign in"
-                onClick={this.onSubmit}
+                onClick={this.onSubmitSignIn}
               />
             </div>
           </div>
@@ -86,4 +86,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default Signin;

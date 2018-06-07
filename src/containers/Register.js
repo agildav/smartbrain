@@ -36,9 +36,10 @@ class Register extends React.Component {
 
     fetch(url, fetchReq)
       .then(response => response.json())
-      .then(data => {
-        if (data === "success") {
+      .then(user => {
+        if (user) {
           this.props.onRouteChange("home");
+          this.props.loadUser(user);
         }
       });
   };

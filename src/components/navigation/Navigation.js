@@ -6,7 +6,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
       <nav className="justify-end flex">
         <p
           className="dim f3 pointer pa3 link black myGrow ma3 underline"
-          onClick={() => onRouteChange("signOut")}
+          onClick={() => onRouteChange("signout")}
         >
           Sign Out
         </p>
@@ -17,7 +17,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
       <nav className="justify-end flex">
         <p
           className="dim f3 pointer pa3 link black myGrow ma3 underline"
-          onClick={() => onRouteChange("signIn")}
+          onClick={() => onRouteChange("signin")}
         >
           Sign In
         </p>

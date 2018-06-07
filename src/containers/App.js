@@ -7,8 +7,8 @@ import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
 import FaceRecognition from "../components/faceRecognition/FaceRecognition";
 import "tachyons";
 import Clarifai from "clarifai";
-import SignIn from "./SignIn";
-import Register from "./Register";
+import SignIn from "../components/signIn/SignIn";
+import Register from "../components/register/Register";
 import "./App.css";
 
 //  Clarifai

@@ -18,14 +18,24 @@ class Signin extends React.Component {
   };
 
   myAlert = () => {
-    Alert.error(`<h3>Oops, can't sign in</h3>`, {
-      position: "bottom-left",
-      effect: "jelly",
-      beep: false,
-      timeout: 2000,
-      offset: 150,
-      html: true
-    });
+    Alert.error(
+      `<div class="">
+        <svg class="w1" data-icon="info" viewBox="0 0 32 32"
+          style="fill:currentcolor">
+          <title>info icon</title>
+          <path d="M16 0 A16 16 0 0 1 16 32 A16 16 0 0 1 16 0 M19 15 L13 15 L13 26 L19 26 z M16 6 A3 3 0 0 0 16 12 A3 3 0 0 0 16 6"></path>
+        </svg>
+        <span class="lh-title ml2">Oops, can't sign in.</span>
+      </div>`,
+      {
+        position: "bottom-left",
+        effect: "jelly",
+        beep: false,
+        timeout: 650,
+        offset: 150,
+        html: true
+      }
+    );
   };
 
   onSubmitSignIn = () => {

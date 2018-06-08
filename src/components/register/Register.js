@@ -1,4 +1,5 @@
 import React from "react";
+import Alert from "react-s-alert";
 
 class Register extends React.Component {
   constructor(props) {
@@ -18,6 +19,17 @@ class Register extends React.Component {
   };
   onPasswordChange = event => {
     this.setState({ password: event.target.value });
+  };
+
+  myAlert = () => {
+    Alert.error(`<h3>Oops, can't register</h3>`, {
+      position: "bottom-left",
+      effect: "jelly",
+      beep: false,
+      timeout: 2000,
+      offset: 150,
+      html: true
+    });
   };
 
   onSubmitSignIn = () => {
@@ -41,7 +53,7 @@ class Register extends React.Component {
           this.props.loadUser(user);
           this.props.onRouteChange("home");
         } else {
-          console.log("Oops, can't register!");
+          this.myAlert();
         }
       });
   };

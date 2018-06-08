@@ -1,4 +1,5 @@
 import React from "react";
+import Alert from "react-s-alert";
 
 class Signin extends React.Component {
   constructor(props) {
@@ -14,6 +15,17 @@ class Signin extends React.Component {
   };
   onPasswordChange = event => {
     this.setState({ signInPassword: event.target.value });
+  };
+
+  myAlert = () => {
+    Alert.error(`<h3>Oops, can't sign in</h3>`, {
+      position: "bottom-left",
+      effect: "jelly",
+      beep: false,
+      timeout: 2000,
+      offset: 150,
+      html: true
+    });
   };
 
   onSubmitSignIn = () => {
@@ -36,7 +48,7 @@ class Signin extends React.Component {
           this.props.loadUser(user);
           this.props.onRouteChange("home");
         } else {
-          console.log("Oops, can't sign in");
+          this.myAlert();
         }
       });
   };

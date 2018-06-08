@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "react-s-alert/dist/s-alert-default.css";
+import "react-s-alert/dist/s-alert-css-effects/jelly.css";
 import Particles from "react-particles-js";
 import Navigation from "../components/navigation/Navigation";
 import Logo from "../components/logo/Logo";
@@ -9,6 +11,7 @@ import "tachyons";
 import SignIn from "../components/signIn/SignIn";
 import Register from "../components/register/Register";
 import "./App.css";
+import Alert from "react-s-alert";
 
 const paramsParticles = {
   particles: {
@@ -146,6 +149,7 @@ class App extends Component {
             onRouteChange={this.onRouteChange}
           />
         )}
+        <Alert stack={{ limit: 3, spacing: 30 }} />
       </div>
     );
   }

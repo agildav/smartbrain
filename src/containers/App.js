@@ -58,6 +58,27 @@ class App extends Component {
     });
   };
 
+  myAlert = () => {
+    Alert.error(
+      `<div class="">
+        <svg class="w1" data-icon="info" viewBox="0 0 32 32"
+          style="fill:currentcolor">
+          <title>info icon</title>
+          <path d="M16 0 A16 16 0 0 1 16 32 A16 16 0 0 1 16 0 M19 15 L13 15 L13 26 L19 26 z M16 6 A3 3 0 0 0 16 12 A3 3 0 0 0 16 6"></path>
+        </svg>
+        <span class="lh-title ml2">Oops, invalid URL or picture</span>
+      </div>`,
+      {
+        position: "bottom-left",
+        effect: "jelly",
+        beep: false,
+        timeout: 650,
+        offset: 250,
+        html: true
+      }
+    );
+  };
+
   calculateFaceLocation = data => {
     const image = document.getElementById("inputimage");
     const width = Number(image.width);
@@ -82,6 +103,9 @@ class App extends Component {
   };
 
   onButtonSubmit = () => {
+    if (this.state.input === "") {
+      return this.myAlert();
+    }
     this.setState({ imageUrl: this.state.input });
     fetch("http://localhost:3000/imageurl", {
       method: "post",
@@ -90,7 +114,13 @@ class App extends Component {
         input: this.state.input
       })
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return this.myAlert();
+        }
+      })
       .then(response => {
         if (response) {
           fetch("http://localhost:3000/image", {

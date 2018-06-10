@@ -43,7 +43,7 @@ class Register extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    const url = "http://localhost:3000/register";
+    const url = "https://enigmatic-fjord-57800.herokuapp.com/register";
     const fetchReq = {
       method: "POST",
       headers: {

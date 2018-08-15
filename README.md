@@ -6,4 +6,3 @@ Face recognition react app
 
 
 - [here](https://agildav.github.io/smartbrain/)
-- [here](https://smart-brain-fd.herokuapp.com/)

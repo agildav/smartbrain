@@ -39,7 +39,9 @@ class Signin extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    const url = "https://enigmatic-fjord-57800.herokuapp.com/signin";
+    // TODO: Remove local dev
+    const url = "http://localhost:3000/signin";
+    //const url = "https://enigmatic-fjord-57800.herokuapp.com/signin";
     const fetchReq = {
       method: "POST",
       headers: {

@@ -107,7 +107,11 @@ class App extends Component {
       return this.myAlert();
     }
     this.setState({ imageUrl: this.state.input });
-    fetch("https://enigmatic-fjord-57800.herokuapp.com/imageurl", {
+
+    // TODO: Remove local dev
+    const url_image = "http://localhost:3000/imageurl";
+    //const url_image = "https://enigmatic-fjord-57800.herokuapp.com/imageurl";
+    fetch(url_image, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -123,7 +127,10 @@ class App extends Component {
       })
       .then(response => {
         if (response) {
-          fetch("https://enigmatic-fjord-57800.herokuapp.com/image", {
+          // TODO: Remove local dev
+          const url_image_face = "http://localhost:3000/image";
+          //const url_image_face = "https://enigmatic-fjord-57800.herokuapp.com/image";
+          fetch(url_image_face, {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

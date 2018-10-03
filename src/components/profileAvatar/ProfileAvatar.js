@@ -23,7 +23,11 @@ class ProfileAvatar extends React.Component {
   render() {
     return (
       <div className="pa4 tc">
-        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+        <Dropdown
+          direction="left"
+          isOpen={this.state.dropdownOpen}
+          toggle={this.toggle}
+        >
           <DropdownToggle
             tag="span"
             data-toggle="dropdown"
@@ -36,7 +40,8 @@ class ProfileAvatar extends React.Component {
             />
           </DropdownToggle>
           <DropdownMenu
-            className="b--transparent shadow-5 mt-4"
+            right
+            className="b--transparent shadow-5 mt-5 mr-2"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
           >
             <DropdownItem>View profile</DropdownItem>

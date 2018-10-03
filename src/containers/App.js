@@ -29,17 +29,11 @@ const initialState = {
   input: "",
   imageUrl: "",
   box: [],
-  //  TODO: route should be "signin"
-  //route: "signin",
-  route: "home",
-  //  TODO: isSignedIn should be false
-  //isSignedIn: false,
-  isSignedIn: true,
+  route: "signin",
+  isSignedIn: false,
   user: {
     id: "",
-    //  TODO: name should be ""
-    //name: "",
-    name: "(TEST)",
+    name: "",
     email: "",
     entries: 0,
     joined: ""

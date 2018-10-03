@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import "react-s-alert/dist/s-alert-default.css";
-import "react-s-alert/dist/s-alert-css-effects/jelly.css";
-import Particles from "react-particles-js";
 import Navigation from "../components/navigation/Navigation";
 import Logo from "../components/logo/Logo";
 import Rank from "../components/rank/Rank";
 import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
 import FaceRecognition from "../components/faceRecognition/FaceRecognition";
-import "tachyons";
 import SignIn from "../components/signIn/SignIn";
 import Register from "../components/register/Register";
-import "./App.css";
+
+import Particles from "react-particles-js";
 import Alert from "react-s-alert";
+import "react-s-alert/dist/s-alert-default.css";
+import "react-s-alert/dist/s-alert-css-effects/jelly.css";
+import "./App.css";
 
 const paramsParticles = {
   particles: {
@@ -29,11 +29,17 @@ const initialState = {
   input: "",
   imageUrl: "",
   box: [],
-  route: "signin",
-  isSignedIn: false,
+  //  TODO: route should be "signin"
+  //route: "signin",
+  route: "home",
+  //  TODO: isSignedIn should be false
+  //isSignedIn: false,
+  isSignedIn: true,
   user: {
     id: "",
-    name: "",
+    //  TODO: name should be ""
+    //name: "",
+    name: "(TEST)",
     email: "",
     entries: 0,
     joined: ""

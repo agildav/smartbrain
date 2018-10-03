@@ -5,13 +5,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
   if (isSignedIn) {
     return (
       <nav className="justify-end flex">
-        <ProfileAvatar />
-        <p
-          className="dim f3 pointer pa3 link black myGrow ma3 underline"
-          onClick={() => onRouteChange("signout")}
-        >
-          Sign Out
-        </p>
+        <ProfileAvatar onRouteChange= {onRouteChange} />
       </nav>
     );
   } else {

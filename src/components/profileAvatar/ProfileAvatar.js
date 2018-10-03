@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
 
 class ProfileAvatar extends React.Component {
   constructor(props) {
@@ -8,14 +14,35 @@ class ProfileAvatar extends React.Component {
     };
   }
 
+  toggle = () => {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  };
+
   render() {
     return (
       <div className="pa4 tc">
-        <img
-          src="http://tachyons.io/img/logo.jpg"
-          class="br-100 ba h3 w3 dib"
-          alt="avatar"
-        />
+        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle
+            tag="span"
+            data-toggle="dropdown"
+            aria-expanded={this.state.dropdownOpen}
+          >
+            <img
+              src="http://tachyons.io/img/logo.jpg"
+              className="br-100 ba h3 w3 dib"
+              alt="avatar"
+            />
+          </DropdownToggle>
+          <DropdownMenu
+            className="b--transparent shadow-5 mt-4"
+            style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+          >
+            <DropdownItem>View profile</DropdownItem>
+            <DropdownItem>Sign out</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
       </div>
     );
   }

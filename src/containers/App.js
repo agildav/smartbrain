@@ -6,6 +6,7 @@ import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
 import FaceRecognition from "../components/faceRecognition/FaceRecognition";
 import SignIn from "../components/signIn/SignIn";
 import Register from "../components/register/Register";
+import { Modal } from "../components/modal/Modal";
 
 import Particles from "react-particles-js";
 import Alert from "react-s-alert";

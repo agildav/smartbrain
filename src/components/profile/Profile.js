@@ -11,11 +11,14 @@ const Profile = ({ toggleModal }) => {
             className="br-100 ba h3 w3 dib"
             alt="avatar"
           />
-          <h1>John Doe</h1>
-          <h3>Images submitted: 5</h3>
-          <h4>Member since: January</h4>
+          <div style={{ textAlign: "center" }}>
+            <h1 className="fw6 f2">John Doe</h1>
+            <p className="fw3 f4">Images submitted: 5</p>
+            <p className="normal f5">Member since: January</p>
+          </div>
+
           <br />
-          <label className="mt2 fw6">Name:</label>
+          <label className="mt2 fw6">Name</label>
           <input
             className="pa2 ba w-100"
             placeholder="john"
@@ -23,6 +26,22 @@ const Profile = ({ toggleModal }) => {
             name="user-name"
             id="name"
           />
+          <br />
+          <br />
+          <div className="buttons-section">
+            <input
+              className="b ph3 pv2 input-reset ba b--black myGrow pointer f4 dib center bg-save"
+              type="submit"
+              value="Save"
+              onClick={this.onSubmitSignIn}
+            />
+            <input
+              className="b ph3 pv2 input-reset ba b--black myGrow pointer f4 dib center bg-danger"
+              type="submit"
+              value="Cancel"
+              onClick={this.onSubmitSignIn}
+            />
+          </div>
         </main>
       </article>
     </div>

@@ -9,3 +9,48 @@
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.5);
 }
+
+.bg-gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcf4f6+0,f1fbfb+4,f1fbfb+13,dcf4f6+19,e1eff5+45,c8e1ee+61,bfd7e9+75,dcf4f6+87,dcf4f6+87,b6cce4+100 */
+  background: #dcf4f6; /* Old browsers */
+  background: -moz-linear-gradient(
+    -45deg,
+    #dcf4f6 0%,
+    #f1fbfb 4%,
+    #f1fbfb 13%,
+    #dcf4f6 19%,
+    #e1eff5 45%,
+    #c8e1ee 61%,
+    #bfd7e9 75%,
+    #dcf4f6 87%,
+    #dcf4f6 87%,
+    #b6cce4 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -45deg,
+    #dcf4f6 0%,
+    #f1fbfb 4%,
+    #f1fbfb 13%,
+    #dcf4f6 19%,
+    #e1eff5 45%,
+    #c8e1ee 61%,
+    #bfd7e9 75%,
+    #dcf4f6 87%,
+    #dcf4f6 87%,
+    #b6cce4 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    135deg,
+    #dcf4f6 0%,
+    #f1fbfb 4%,
+    #f1fbfb 13%,
+    #dcf4f6 19%,
+    #e1eff5 45%,
+    #c8e1ee 61%,
+    #bfd7e9 75%,
+    #dcf4f6 87%,
+    #dcf4f6 87%,
+    #b6cce4 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcf4f6', endColorstr='#b6cce4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}

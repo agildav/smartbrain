@@ -33,7 +33,8 @@ const initialState = {
   box: [],
   route: "signin",
   isSignedIn: false,
-  isProfileOpen: false,
+  //  TODO: change isProfileOpen to false
+  isProfileOpen: true,
   user: {
     id: "",
     name: "",

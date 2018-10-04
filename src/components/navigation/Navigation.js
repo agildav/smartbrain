@@ -1,11 +1,14 @@
 import React from "react";
 import ProfileAvatar from "../profileAvatar/ProfileAvatar";
 
-const Navigation = ({ onRouteChange, isSignedIn }) => {
+const Navigation = ({ onRouteChange, isSignedIn, toggleModal }) => {
   if (isSignedIn) {
     return (
       <nav className="justify-end flex">
-        <ProfileAvatar onRouteChange= {onRouteChange} />
+        <ProfileAvatar
+          onRouteChange={onRouteChange}
+          toggleModal={toggleModal}
+        />
       </nav>
     );
   } else {

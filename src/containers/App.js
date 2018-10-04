@@ -6,7 +6,8 @@ import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm";
 import FaceRecognition from "../components/faceRecognition/FaceRecognition";
 import SignIn from "../components/signIn/SignIn";
 import Register from "../components/register/Register";
-import { Modal } from "../components/modal/Modal";
+import Modal from "../components/modal/Modal";
+import Profile from "../components/profile/Profile";
 
 import Particles from "react-particles-js";
 import Alert from "react-s-alert";
@@ -32,6 +33,7 @@ const initialState = {
   box: [],
   route: "signin",
   isSignedIn: false,
+  isProfileOpen: false,
   user: {
     id: "",
     name: "",
@@ -157,15 +159,29 @@ class App extends Component {
     }
     this.setState({ route: route });
   };
+
+  toggleModal = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      isProfileOpen: !prevState.isProfileOpen
+    }));
+  };
+
   render() {
-    const { isSignedIn, imageUrl, route, box } = this.state;
+    const { isSignedIn, imageUrl, route, box, isProfileOpen } = this.state;
     return (
       <div className="App">
         <Particles className="particles" params={paramsParticles} />
         <Navigation
           isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
+          toggleModal={this.toggleModal}
         />
+        {isProfileOpen && (
+          <Modal>
+            <Profile toggleModal={this.toggleModal} />
+          </Modal>
+        )}
         {route === "home" ? (
           <div>
             <Logo />
@@ -180,7 +196,12 @@ class App extends Component {
             <FaceRecognition box={box} imageUrl={imageUrl} />
           </div>
         ) : route === "signin" || route === "signout" ? (
-          <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+          <div>
+            <SignIn
+              loadUser={this.loadUser}
+              onRouteChange={this.onRouteChange}
+            />
+          </div>
         ) : (
           <Register
             loadUser={this.loadUser}

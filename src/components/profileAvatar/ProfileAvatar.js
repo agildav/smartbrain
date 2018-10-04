@@ -44,7 +44,9 @@ class ProfileAvatar extends React.Component {
             className="b--transparent shadow-5 mt-5 mr-2"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
           >
-            <DropdownItem>View profile</DropdownItem>
+            <DropdownItem onClick={this.props.toggleModal}>
+              View profile
+            </DropdownItem>
             <DropdownItem onClick={() => this.props.onRouteChange("signout")}>
               Sign out
             </DropdownItem>

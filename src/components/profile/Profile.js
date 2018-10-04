@@ -8,7 +8,7 @@ const Profile = ({ toggleModal }) => {
         <main className="pa4 black-80 w-80">
           <img
             src="http://tachyons.io/img/logo.jpg"
-            className="br-100 ba h3 w3 dib"
+            className="br-100 ba h3 w3 dib center"
             alt="avatar"
           />
           <div style={{ textAlign: "center" }}>
@@ -33,16 +33,19 @@ const Profile = ({ toggleModal }) => {
               className="b ph3 pv2 input-reset ba b--black myGrow pointer f4 dib center bg-save"
               type="submit"
               value="Save"
-              onClick={this.onSubmitSignIn}
+              onClick={toggleModal}
             />
             <input
               className="b ph3 pv2 input-reset ba b--black myGrow pointer f4 dib center bg-danger"
               type="submit"
               value="Cancel"
-              onClick={this.onSubmitSignIn}
+              onClick={toggleModal}
             />
           </div>
         </main>
+        <span className="modal-close f1 pointer" onClick={toggleModal}>
+          &times;
+        </span>
       </article>
     </div>
   );

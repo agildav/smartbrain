@@ -110,3 +110,7 @@
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7f0fb', endColorstr='#d7f0fb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+
+.modal-close {
+  max-height: 60px;
+}

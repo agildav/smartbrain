@@ -1,7 +1,7 @@
 import React from "react";
 import "./Profile.css";
 
-const Profile = ({ toggleModal }) => {
+const Profile = ({ toggleModal, name, joined, entries }) => {
   return (
     <div className="profile-modal">
       <article className="br3 ba b--black-10 mv5 w-100 w-50-m w-25-l mw6 shadow center bg-gradient">
@@ -12,9 +12,11 @@ const Profile = ({ toggleModal }) => {
             alt="avatar"
           />
           <div style={{ textAlign: "center" }}>
-            <h1 className="fw6 f2">John Doe</h1>
-            <p className="fw3 f4">Images submitted: 5</p>
-            <p className="normal f5">Member since: January</p>
+            <h1 className="fw6 f2">{name}</h1>
+            <p className="fw3 f4">Images submitted: {entries}</p>
+            <p className="normal f5">
+              Member since: {new Date(joined).toLocaleDateString()}
+            </p>
           </div>
 
           <br />

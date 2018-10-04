@@ -43,7 +43,7 @@ const Profile = ({ toggleModal }) => {
             />
           </div>
         </main>
-        <span className="modal-close f1 pointer" onClick={toggleModal}>
+        <span className="modal-close" onClick={toggleModal}>
           &times;
         </span>
       </article>

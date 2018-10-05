@@ -9,6 +9,12 @@ export default class Profile extends React.Component {
     };
   }
 
+  onFormChange = event => {
+    this.setState({
+      name: event.target.value
+    });
+  };
+
   render() {
     return (
       <div className="profile-modal">
@@ -31,10 +37,11 @@ export default class Profile extends React.Component {
             <label className="mt2 fw6">Name</label>
             <input
               className="pa2 ba w-100"
-              placeholder="john"
+              placeholder={this.state.name}
               type="text"
               name="user-name"
               id="name"
+              onChange={this.onFormChange}
             />
             <br />
             <br />
@@ -57,7 +64,6 @@ export default class Profile extends React.Component {
             &times;
           </span>
         </article>
-        {console.log(this.state)}
       </div>
     );
   }

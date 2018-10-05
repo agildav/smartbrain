@@ -182,9 +182,8 @@ class App extends Component {
           <Modal>
             <Profile
               toggleModal={this.toggleModal}
-              name={this.state.user.name}
-              entries={this.state.user.entries}
-              joined={this.state.user.joined}
+              user={this.state.user}
+              loadUser={this.loadUser}
             />
           </Modal>
         )}

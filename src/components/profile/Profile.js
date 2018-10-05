@@ -5,7 +5,7 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.name
+      name: this.props.user.name
     };
   }
 
@@ -13,6 +13,24 @@ export default class Profile extends React.Component {
     this.setState({
       name: event.target.value
     });
+  };
+
+  onProfileSave = data => {
+    //  TODO: Remove local dev
+    const url = "http://localhost:3000/profile/";
+    const id = this.props.user.id;
+    const fetchURL = url + id;
+
+    fetch(fetchURL, {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formInput: data })
+    })
+      .then(response => {
+        this.props.toggleModal();
+        this.props.loadUser({ ...this.props.user, ...data });
+      })
+      .catch(console.log);
   };
 
   render() {
@@ -27,9 +45,12 @@ export default class Profile extends React.Component {
             />
             <div style={{ textAlign: "center" }}>
               <h1 className="fw6 f2 ofx">{this.state.name}</h1>
-              <p className="fw3 f4">Images submitted: {this.props.entries}</p>
+              <p className="fw3 f4">
+                Images submitted: {this.props.user.entries}
+              </p>
               <p className="normal f5">
-                Member since: {new Date(this.props.joined).toLocaleDateString()}
+                Member since:{" "}
+                {new Date(this.props.user.joined).toLocaleDateString()}
               </p>
             </div>
 
@@ -51,7 +72,7 @@ export default class Profile extends React.Component {
                 className="b ph3 pv2 input-reset ba b--black myGrow pointer f4 dib center bg-save"
                 type="submit"
                 value="Save"
-                onClick={this.props.toggleModal}
+                onClick={() => this.onProfileSave(this.state)}
               />
               <input
                 className="b ph3 pv2 input-reset ba b--black myGrow pointer f4 dib center bg-danger"

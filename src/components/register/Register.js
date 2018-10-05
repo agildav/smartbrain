@@ -88,6 +88,7 @@ class Register extends React.Component {
                   name="name"
                   id="name"
                   onChange={this.onNameChange}
+                  maxLength="20"
                 />
               </div>
               <div className="mt3">

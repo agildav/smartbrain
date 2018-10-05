@@ -26,7 +26,7 @@ export default class Profile extends React.Component {
               alt="avatar"
             />
             <div style={{ textAlign: "center" }}>
-              <h1 className="fw6 f2">{this.state.name}</h1>
+              <h1 className="fw6 f2 ofx">{this.state.name}</h1>
               <p className="fw3 f4">Images submitted: {this.props.entries}</p>
               <p className="normal f5">
                 Member since: {new Date(this.props.joined).toLocaleDateString()}
@@ -42,6 +42,7 @@ export default class Profile extends React.Component {
               name="user-name"
               id="name"
               onChange={this.onFormChange}
+              maxLength="20"
             />
             <br />
             <br />

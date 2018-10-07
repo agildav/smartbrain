@@ -65,8 +65,24 @@ class App extends Component {
       fetch(url, fetchReq)
         .then(response => response.json())
         .then(data => {
-          if (data) {
-            console.log("Success", data);
+          if (data.id) {
+            //  TODO: Remove local dev
+            const url = `http://localhost:3000/profile/${data.id}`;
+            const fetchReq = {
+              method: "get",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: token
+              }
+            };
+            fetch(url, fetchReq)
+              .then(response => response.json())
+              .then(user => {
+                if (user.email) {
+                  this.loadUser(user);
+                  this.onRouteChange("home");
+                }
+              });
           } else {
             this.myAlert();
           }

@@ -39,6 +39,10 @@ class Signin extends React.Component {
     );
   };
 
+  saveAuthTokenInSession = token => {
+    window.sessionStorage.setItem("token", token);
+  };
+
   onSubmitSignIn = () => {
     // TODO: Remove local dev
     const url = "http://localhost:3000/signin";
@@ -57,7 +61,8 @@ class Signin extends React.Component {
     fetch(url, fetchReq)
       .then(response => response.json())
       .then(data => {
-        if (data.userID) {
+        if (data.userID && data.success === "true") {
+          this.saveAuthTokenInSession(data.token);
           this.props.loadUser(data);
           this.props.onRouteChange("home");
         } else {

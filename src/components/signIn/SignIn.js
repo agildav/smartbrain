@@ -53,12 +53,12 @@ class Signin extends React.Component {
         password: this.state.signInPassword
       })
     };
-
+    //  TODO: Fix get profile information, response from server
     fetch(url, fetchReq)
       .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user);
+      .then(data => {
+        if (data.userID) {
+          this.props.loadUser(data);
           this.props.onRouteChange("home");
         } else {
           this.myAlert();

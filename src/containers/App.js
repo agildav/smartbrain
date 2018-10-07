@@ -50,6 +50,31 @@ class App extends Component {
     this.state = initialState;
   }
 
+  componentDidMount() {
+    const token = window.sessionStorage.getItem("token");
+    if (token) {
+      //  TODO: Remove local dev
+      const url = "http://localhost:3000/signin";
+      const fetchReq = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token
+        }
+      };
+      fetch(url, fetchReq)
+        .then(response => response.json())
+        .then(data => {
+          if (data) {
+            console.log("Success", data);
+          } else {
+            this.myAlert();
+          }
+        })
+        .catch(console.log);
+    }
+  }
+
   loadUser = data => {
     this.setState({
       user: {

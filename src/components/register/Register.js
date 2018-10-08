@@ -43,6 +43,10 @@ class Register extends React.Component {
     );
   };
 
+  saveAuthTokenInSession = token => {
+    window.sessionStorage.setItem("token", token);
+  };
+
   onSubmitSignIn = () => {
     // TODO: Remove local dev
     const url = "http://localhost:3000/register";
@@ -58,17 +62,34 @@ class Register extends React.Component {
         password: this.state.password
       })
     };
-
     fetch(url, fetchReq)
       .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user);
-          this.props.onRouteChange("home");
+      .then(data => {
+        if (data.userID && data.success === "true") {
+          this.saveAuthTokenInSession(data.token);
+          //  TODO: Remove local dev
+          const url = `http://localhost:3000/profile/${data.userID}`;
+          const fetchReq = {
+            method: "get",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: data.token
+            }
+          };
+          fetch(url, fetchReq)
+            .then(response => response.json())
+            .then(user => {
+              if (user.email) {
+                this.props.loadUser(user);
+                this.props.onRouteChange("home");
+              }
+            })
+            .catch(console.log);
         } else {
           this.myAlert();
         }
-      });
+      })
+      .catch(console.log);
   };
 
   render() {

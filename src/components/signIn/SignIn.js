@@ -57,7 +57,7 @@ class Signin extends React.Component {
         password: this.state.signInPassword
       })
     };
-    //  TODO: Fix get profile information, response from server
+    //  view-fix
     fetch(url, fetchReq)
       .then(response => response.json())
       .then(data => {

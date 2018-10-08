@@ -51,6 +51,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    alert("Wait for server to wake up when you submit sign in / register");
     const token = window.sessionStorage.getItem("token");
     if (token) {
       //  TODO: Remove local dev

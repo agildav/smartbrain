@@ -125,22 +125,25 @@ class App extends Component {
   };
 
   calculateFaceLocation = data => {
-    const image = document.getElementById("inputimage");
-    const width = Number(image.width);
-    const height = Number(image.height);
-    return data.outputs[0].data.regions.map(face => {
-      const clarifaiFace = face.region_info.bounding_box;
-      return {
-        leftCol: clarifaiFace.left_col * width,
-        topRow: clarifaiFace.top_row * height,
-        rightCol: width - clarifaiFace.right_col * width,
-        bottomRow: height - clarifaiFace.bottom_row * height
-      };
-    });
+    if (data) {
+      const image = document.getElementById("inputimage");
+      const width = Number(image.width);
+      const height = Number(image.height);
+      return data.outputs[0].data.regions.map(face => {
+        const clarifaiFace = face.region_info.bounding_box;
+        return {
+          leftCol: clarifaiFace.left_col * width,
+          topRow: clarifaiFace.top_row * height,
+          rightCol: width - clarifaiFace.right_col * width,
+          bottomRow: height - clarifaiFace.bottom_row * height
+        };
+      });
+    }
+    return;
   };
 
   displayFaceBox = box => {
-    this.setState({ box: box });
+    if (box) this.setState({ box: box });
   };
 
   onInputChange = event => {
@@ -158,7 +161,10 @@ class App extends Component {
     //const url_image = "https://enigmatic-fjord-57800.herokuapp.com/imageurl";
     fetch(url_image, {
       method: "post",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: window.sessionStorage.getItem("token")
+      },
       body: JSON.stringify({
         input: this.state.input
       })
@@ -177,7 +183,10 @@ class App extends Component {
           //const url_image_face = "https://enigmatic-fjord-57800.herokuapp.com/image";
           fetch(url_image_face, {
             method: "put",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: window.sessionStorage.getItem("token")
+            },
             body: JSON.stringify({
               id: this.state.user.id
             })

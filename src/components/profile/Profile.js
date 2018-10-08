@@ -1,4 +1,5 @@
 import React from "react";
+import profile from "./profile.svg";
 import "./Profile.css";
 
 export default class Profile extends React.Component {
@@ -23,12 +24,17 @@ export default class Profile extends React.Component {
 
     fetch(fetchURL, {
       method: "post",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: window.sessionStorage.getItem("token")
+      },
       body: JSON.stringify({ formInput: data })
     })
       .then(response => {
-        this.props.toggleModal();
-        this.props.loadUser({ ...this.props.user, ...data });
+        if (response.ok || response.status === 304) {
+          this.props.toggleModal();
+          this.props.loadUser({ ...this.props.user, ...data });
+        }
       })
       .catch(console.log);
   };
@@ -39,8 +45,9 @@ export default class Profile extends React.Component {
         <article className="br3 ba b--black-10 mv5 w-100 w-50-m w-25-l mw6 shadow center bg-gradient">
           <main className="pa4 black-80 w-80">
             <img
-              src="http://tachyons.io/img/logo.jpg"
+              src={profile}
               className="br-100 ba h3 w3 dib center"
+              style={{ border: "none" }}
               alt="avatar"
             />
             <div style={{ textAlign: "center" }}>

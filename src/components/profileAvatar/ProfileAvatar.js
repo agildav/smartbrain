@@ -5,6 +5,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import profile from "../profile/profile.svg";
 
 class ProfileAvatar extends React.Component {
   constructor(props) {
@@ -34,8 +35,9 @@ class ProfileAvatar extends React.Component {
             aria-expanded={this.state.dropdownOpen}
           >
             <img
-              src="http://tachyons.io/img/logo.jpg"
+              src={profile}
               className="br-100 ba h3 w3 dib"
+              style={{ border: "none" }}
               alt="avatar"
             />
           </DropdownToggle>

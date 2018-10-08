@@ -65,7 +65,7 @@ class Register extends React.Component {
       .then(data => {
         if (data.userID && data.success === "true") {
           this.saveAuthTokenInSession(data.token);
-          const url = `https://enigmatic-fjord-57800.herokuapp.com/${data.userID}`;
+          const url = `https://enigmatic-fjord-57800.herokuapp.com/profile/${data.userID}`;
           const fetchReq = {
             method: "get",
             headers: {

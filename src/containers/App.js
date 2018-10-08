@@ -204,8 +204,28 @@ class App extends Component {
 
   onRouteChange = route => {
     if (route === "signout") {
-      //  TODO: request token removal
-      return this.setState(initialState);
+      // TODO: Remove local dev
+      const url = "http://localhost:3000/signout";
+      //const url = "https://enigmatic-fjord-57800.herokuapp.com/signout";
+      fetch(url, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: window.sessionStorage.getItem("token")
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            window.sessionStorage.removeItem("token");
+            return response.json();
+          } else {
+            return this.myAlert();
+          }
+        })
+        .then(response => {
+          if (response) return this.setState(initialState);
+        })
+        .catch(err => console.log(err));
     } else if (route === "home") {
       this.setState({ isSignedIn: true });
     }

@@ -57,7 +57,6 @@ class Signin extends React.Component {
         password: this.state.signInPassword
       })
     };
-    //  view-fix
     fetch(url, fetchReq)
       .then(response => response.json())
       .then(data => {

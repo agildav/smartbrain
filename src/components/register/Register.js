@@ -48,9 +48,7 @@ class Register extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    // TODO: Remove local dev
-    const url = "http://localhost:3000/register";
-    //const url = "https://enigmatic-fjord-57800.herokuapp.com/register";
+    const url = "https://enigmatic-fjord-57800.herokuapp.com/register";
     const fetchReq = {
       method: "POST",
       headers: {
@@ -67,8 +65,7 @@ class Register extends React.Component {
       .then(data => {
         if (data.userID && data.success === "true") {
           this.saveAuthTokenInSession(data.token);
-          //  TODO: Remove local dev
-          const url = `http://localhost:3000/profile/${data.userID}`;
+          const url = `https://enigmatic-fjord-57800.herokuapp.com/${data.userID}`;
           const fetchReq = {
             method: "get",
             headers: {

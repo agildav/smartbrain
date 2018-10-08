@@ -54,8 +54,7 @@ class App extends Component {
     alert("Wait for server to wake up when you submit sign in / register");
     const token = window.sessionStorage.getItem("token");
     if (token) {
-      //  TODO: Remove local dev
-      const url = "http://localhost:3000/signin";
+      const url = "https://enigmatic-fjord-57800.herokuapp.com/signin";
       const fetchReq = {
         method: "POST",
         headers: {
@@ -67,8 +66,9 @@ class App extends Component {
         .then(response => response.json())
         .then(data => {
           if (data.id) {
-            //  TODO: Remove local dev
-            const url = `http://localhost:3000/profile/${data.id}`;
+            const url = `https://enigmatic-fjord-57800.herokuapp.com/profile/${
+              data.id
+            }`;
             const fetchReq = {
               method: "get",
               headers: {
@@ -157,9 +157,8 @@ class App extends Component {
     }
     this.setState({ imageUrl: this.state.input });
 
-    // TODO: Remove local dev
-    const url_image = "http://localhost:3000/imageurl";
-    //const url_image = "https://enigmatic-fjord-57800.herokuapp.com/imageurl";
+    const url_image = "https://enigmatic-fjord-57800.herokuapp.com/imageurl";
+
     fetch(url_image, {
       method: "post",
       headers: {
@@ -179,9 +178,9 @@ class App extends Component {
       })
       .then(response => {
         if (response) {
-          // TODO: Remove local dev
-          const url_image_face = "http://localhost:3000/image";
-          //const url_image_face = "https://enigmatic-fjord-57800.herokuapp.com/image";
+          const url_image_face =
+            "https://enigmatic-fjord-57800.herokuapp.com/image";
+
           fetch(url_image_face, {
             method: "put",
             headers: {
@@ -205,9 +204,8 @@ class App extends Component {
 
   onRouteChange = route => {
     if (route === "signout") {
-      // TODO: Remove local dev
-      const url = "http://localhost:3000/signout";
-      //const url = "https://enigmatic-fjord-57800.herokuapp.com/signout";
+      const url = "https://enigmatic-fjord-57800.herokuapp.com/signout";
+
       fetch(url, {
         method: "get",
         headers: {

@@ -17,8 +17,7 @@ export default class Profile extends React.Component {
   };
 
   onProfileSave = data => {
-    //  TODO: Remove local dev
-    const url = "http://localhost:3000/profile/";
+    const url = "https://enigmatic-fjord-57800.herokuapp.com/profile/";
     const id = this.props.user.id;
     const fetchURL = url + id;
 
